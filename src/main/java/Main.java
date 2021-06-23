@@ -25,14 +25,18 @@ public class Main {
             if (input.equals("0")) {
                 break;
             }
-            if(!input.equals("LIST")){
-                emailList.add(input);
-            }
             if(input.equals("LIST")){
                 for (String email : emailList.getSortedEmails()){
                     System.out.println(email);
                 }
             }
+            if(input.matches("^ADD\\s.+")){
+                String[] match = input.split("\\s+",2);
+                System.out.println(match[0]);
+                System.out.println(match[1]);
+                emailList.add(match[1]);
+            }
+
             //TODO: write code here
             
         }
